@@ -1,13 +1,17 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using MOD.AdminLibrary;
-using MOD.AdminLibrary.Repositories;
+using Microsoft.Extensions.Logging;
 
-namespace MOD.AdminService
+namespace MOD.MentorService
 {
     public class Startup
     {
@@ -21,13 +25,7 @@ namespace MOD.AdminService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors();
-            services.AddDbContext<AdminContext>(options =>
-                options.UseSqlServer(
-                Configuration.GetConnectionString("SqlConnectionString")));
-
             services.AddControllers();
-            services.AddScoped<IAdminRepository, AdminRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,11 +37,9 @@ namespace MOD.AdminService
             }
 
             app.UseHttpsRedirection();
-            app.UseCors(policy => policy.AllowAnyOrigin()
-                                .AllowAnyMethod().AllowAnyHeader());
+
             app.UseRouting();
 
-            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

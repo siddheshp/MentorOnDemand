@@ -38,6 +38,5 @@ namespace MOD.AuthLibrary
         }
 
         public DbSet<MODUser> MODUsers { get; set; }
-        public DbSet<Skill> Skills { get; set; }
     }
 }

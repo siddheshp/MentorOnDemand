@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace MOD.AuthLibrary.Models
+namespace MOD.AdminService.Dtos
 {
-    public class Skill
+    public class SkillDto
     {
-        public int Id { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]
-        public MODUser AdminUser { get; set; }
+        public decimal Fee { get; set; }
     }
 }

@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using MOD.AuthLibrary.Models;
-using MOD.AuthLibrary.Repositories;
+using MOD.AdminLibrary.Repositories;
+using MOD.AdminService.Dtos;
 
 namespace MOD.AdminService.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class AdminController : ControllerBase
     {
         IAdminRepository repository;
@@ -34,11 +36,11 @@ namespace MOD.AdminService.Controllers
 
         // POST: api/Admin
         [HttpPost]
-        public IActionResult Post([FromBody] Skill model)
+        public IActionResult Post([FromBody] SkillDto model)
         {
             if (ModelState.IsValid)
             {
-                repository.AddSkill(model);
+                //repository.AddSkill(model);
             }
             return BadRequest(ModelState);
         }

@@ -19,6 +19,7 @@ using Microsoft.IdentityModel.Tokens;
 using MOD.AuthLibrary;
 using MOD.AuthLibrary.Models;
 using Newtonsoft.Json;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace MOD.AuthService
 {
@@ -44,7 +45,6 @@ namespace MOD.AuthService
                 .AddDefaultTokenProviders();
 
             services.AddControllers();
-            //services.AddScoped<IRepository, MovieRepository>();
 
             //JWT
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear(); // => remove default claims
@@ -76,6 +76,12 @@ namespace MOD.AuthService
                 .AddNewtonsoftJson(opt =>
                 opt.SerializerSettings.ReferenceLoopHandling =
                 ReferenceLoopHandling.Ignore);
+
+            // Register the Swagger generator, defining 1 or more Swagger documents
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

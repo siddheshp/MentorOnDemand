@@ -5,7 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MOD.AuthLibrary\MOD.AuthLibrary.csproj" />
+    <Folder Include="Models\" />
+    <Folder Include="Repositories\" />
   </ItemGroup>
 
 </Project>

@@ -53,6 +53,7 @@ namespace MOD.AuthService.Controllers
                 var appUser = userManager.Users.SingleOrDefault(
                     r => r.Email == model.Email);
                 var response = await GenerateJwtToken(model.Email, appUser);
+
                 return Ok(response);
             }
             return BadRequest(result);
@@ -102,7 +103,7 @@ namespace MOD.AuthService.Controllers
                 var reslt1 = await userManager.AddToRoleAsync(user, roleName);
                 if (reslt1.Succeeded)
                 {
-                    return Created("Register", new { Message = "Registered Successfully"});
+                    return Created("Register", new { Message = "Registered Successfully" });
                 }
                 return BadRequest(reslt1.Errors);
             }
@@ -111,13 +112,18 @@ namespace MOD.AuthService.Controllers
         }
 
         private async Task<TokenDto> GenerateJwtToken(string email,
-            IdentityUser user)
+            MODUser user)
         {
+            var roles = await userManager.GetRolesAsync(user);
+            var role = roleManager.Roles.SingleOrDefault(
+                r => r.Name == roles.SingleOrDefault());
+
             var claims = new List<Claim>
             {
                 new Claim(JwtRegisteredClaimNames.Sub, email),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim(ClaimTypes.NameIdentifier, user.Id)
+                new Claim(ClaimTypes.NameIdentifier, user.Id),
+                new Claim(ClaimTypes.Role, role.Name)
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
@@ -139,7 +145,8 @@ namespace MOD.AuthService.Controllers
             var response = new TokenDto
             {
                 Email = email,
-                Token = new JwtSecurityTokenHandler().WriteToken(token)
+                Token = new JwtSecurityTokenHandler().WriteToken(token),
+                Role = Convert.ToInt32(role.Id)
             };
 
             return response;

@@ -8,7 +8,7 @@ using System.Text;
 
 namespace MOD.AdminLibrary
 {
-    class AdminContext : IdentityDbContext
+    public class AdminContext : IdentityDbContext
     {
         public AdminContext(DbContextOptions options) : base(options)
         {

@@ -1,11 +1,16 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using MOD.AdminLibrary;
 using MOD.AdminLibrary.Repositories;
+using System;
+using System.IdentityModel.Tokens.Jwt;
+using System.Text;
 
 namespace MOD.AdminService
 {
@@ -25,6 +30,31 @@ namespace MOD.AdminService
             services.AddDbContext<AdminContext>(options =>
                 options.UseSqlServer(
                 Configuration.GetConnectionString("SqlConnectionString")));
+
+            //JWT
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear(); // => remove default claims
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme =
+                    JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultScheme =
+                    JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme =
+                    JwtBearerDefaults.AuthenticationScheme;
+            })
+                .AddJwtBearer(cfg =>
+                {
+                    cfg.RequireHttpsMetadata = false;
+                    cfg.SaveToken = true;
+                    cfg.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidIssuer = Configuration["JwtIssuer"],
+                        ValidAudience = Configuration["JwtIssuer"],
+                        IssuerSigningKey = new SymmetricSecurityKey(
+                            Encoding.UTF8.GetBytes(Configuration["JwtKey"])),
+                        ClockSkew = TimeSpan.Zero // remove delay of token when expire
+                    };
+                });
 
             services.AddControllers();
             services.AddScoped<IAdminRepository, AdminRepository>();

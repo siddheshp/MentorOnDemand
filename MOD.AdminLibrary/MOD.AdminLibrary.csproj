@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20191120071508_adminMigration.cs" />
+    <Compile Remove="Migrations\20191120071508_adminMigration.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\MOD.AuthLibrary\MOD.AuthLibrary.csproj" />
   </ItemGroup>
 

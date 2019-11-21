@@ -44,6 +44,10 @@ namespace MOD.AdminService
             })
                 .AddJwtBearer(cfg =>
                 {
+                    //cfg.Authority = "https://localhost:44336"; //identity url
+                    //cfg.RequireHttpsMetadata = false;
+                    //cfg.Audience = "admin";
+
                     cfg.RequireHttpsMetadata = false;
                     cfg.SaveToken = true;
                     cfg.TokenValidationParameters = new TokenValidationParameters

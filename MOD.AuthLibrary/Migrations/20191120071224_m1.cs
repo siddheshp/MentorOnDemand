@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MOD.AuthLibrary.Migrations
 {
-    public partial class InitlaMigration : Migration
+    public partial class m1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -159,17 +159,17 @@ namespace MOD.AuthLibrary.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "1", "32c7900e-a680-4061-8605-048dee3e6e4b", "Admin", "Admin" });
+                values: new object[] { "1", "e8c35f5d-0c23-4735-b946-02b7e02b4ecd", "Admin", "Admin" });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "2", "300628db-4b57-46e9-ba8a-f6de408b6a1a", "Mentor", "Mentor" });
+                values: new object[] { "2", "8f644c7e-1e1b-4475-8f41-058bd8c80916", "Mentor", "Mentor" });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "3", "7e900502-c987-4885-89cc-d0f916347a20", "Student", "Student" });
+                values: new object[] { "3", "961a73b9-c8ee-4ecd-ba88-7b95c0a59067", "Student", "Student" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

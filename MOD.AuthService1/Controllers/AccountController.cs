@@ -12,9 +12,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using MOD.AuthLibrary.Models;
-using MOD.AuthService.Dtos;
+using MOD.AuthService1.Dtos;
 
-namespace MOD.AuthService.Controllers
+namespace MOD.AuthService1.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

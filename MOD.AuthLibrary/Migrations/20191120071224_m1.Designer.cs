@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MOD.AuthLibrary.Migrations
 {
     [DbContext(typeof(MODContext))]
-    [Migration("20191108113736_skillModel")]
-    partial class skillModel
+    [Migration("20191120071224_m1")]
+    partial class m1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,28 +20,6 @@ namespace MOD.AuthLibrary.Migrations
                 .HasAnnotation("ProductVersion", "3.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("MOD.AuthLibrary.Models.Skill", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("AdminUserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AdminUserId");
-
-                    b.ToTable("Skills");
-                });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
@@ -73,21 +51,21 @@ namespace MOD.AuthLibrary.Migrations
                         new
                         {
                             Id = "1",
-                            ConcurrencyStamp = "2335bf2b-f0b6-44b3-84ad-e9f5fa614c9f",
+                            ConcurrencyStamp = "e8c35f5d-0c23-4735-b946-02b7e02b4ecd",
                             Name = "Admin",
                             NormalizedName = "Admin"
                         },
                         new
                         {
                             Id = "2",
-                            ConcurrencyStamp = "3125c3e3-73be-422f-b3f9-9ac33d78c3e3",
+                            ConcurrencyStamp = "8f644c7e-1e1b-4475-8f41-058bd8c80916",
                             Name = "Mentor",
                             NormalizedName = "Mentor"
                         },
                         new
                         {
                             Id = "3",
-                            ConcurrencyStamp = "78299f21-fc8e-4f13-9f66-f36829c6cc8b",
+                            ConcurrencyStamp = "961a73b9-c8ee-4ecd-ba88-7b95c0a59067",
                             Name = "Student",
                             NormalizedName = "Student"
                         });
@@ -284,15 +262,6 @@ namespace MOD.AuthLibrary.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasDiscriminator().HasValue("MODUser");
-                });
-
-            modelBuilder.Entity("MOD.AuthLibrary.Models.Skill", b =>
-                {
-                    b.HasOne("MOD.AuthLibrary.Models.MODUser", "AdminUser")
-                        .WithMany()
-                        .HasForeignKey("AdminUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

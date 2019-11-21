@@ -4,15 +4,15 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MOD.AuthService.Dtos
+namespace MOD.AuthService1.Dtos
 {
-    public class TokenDto
+    public class LoginDto
     {
         [Required]
         [EmailAddress]
         public string Email { get; set; }
+
         [Required]
-        public string Token { get; set; }
-        public int Role { get; set; }
+        public string Password { get; set; }
     }
 }

@@ -1,0 +1,40 @@
+{
+  "ReRoutes": [
+    {
+      "DownstreamPathTemplate": "/api/account/{catchAll}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44399
+        }
+      ],
+      "UpstreamPathTemplate": "/authservice/{catchAll}"
+    },
+    {
+      "DownstreamPathTemplate": "/api/admin",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44347
+        }
+      ],
+      "UpstreamPathTemplate": "/adminservice"
+    },
+    {
+      "DownstreamPathTemplate": "/api/admin/{catchAll}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44347
+        }
+      ],
+      "UpstreamPathTemplate": "/adminservice/{catchAll}"
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:44324"
+  }
+}

@@ -28,7 +28,7 @@ namespace MOD.AdminService.Controllers
         }
 
         // GET: api/Admin/5
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}")]
         public string Get(int id)
         {
             return "value";

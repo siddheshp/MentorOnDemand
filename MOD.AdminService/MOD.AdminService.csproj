@@ -17,7 +17,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MOD.AdminLibrary\MOD.AdminLibrary.csproj" />
-    <ProjectReference Include="..\MOD.AuthLibrary\MOD.AuthLibrary.csproj" />
   </ItemGroup>
 
 </Project>

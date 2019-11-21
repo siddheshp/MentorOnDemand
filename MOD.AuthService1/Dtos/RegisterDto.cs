@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MOD.AuthService.Dtos
+namespace MOD.AuthService1.Dtos
 {
     public class RegisterDto
     {

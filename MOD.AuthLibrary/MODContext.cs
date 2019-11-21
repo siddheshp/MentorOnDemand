@@ -34,6 +34,7 @@ namespace MOD.AuthLibrary
                 Name = "Student",
                 NormalizedName = "Student"
             }));
+
             base.OnModelCreating(builder);
         }
 

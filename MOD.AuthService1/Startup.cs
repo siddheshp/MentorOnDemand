@@ -18,10 +18,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using MOD.AuthLibrary;
 using MOD.AuthLibrary.Models;
-using Newtonsoft.Json;
-using Swashbuckle.AspNetCore.Swagger;
 
-namespace MOD.AuthService
+namespace MOD.AuthService1
 {
     public class Startup
     {
@@ -29,6 +27,7 @@ namespace MOD.AuthService
         {
             Configuration = configuration;
         }
+
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -69,18 +68,6 @@ namespace MOD.AuthService
                         ClockSkew = TimeSpan.Zero // remove delay of token when expire
                     };
                 });
-
-            services.AddMvc(option => option.EnableEndpointRouting = false)
-                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
-                .AddNewtonsoftJson(opt =>
-                opt.SerializerSettings.ReferenceLoopHandling =
-                ReferenceLoopHandling.Ignore);
-
-            // Register the Swagger generator, defining 1 or more Swagger documents
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -95,7 +82,6 @@ namespace MOD.AuthService
             app.UseCors(policy => policy.AllowAnyOrigin()
                                 .AllowAnyMethod().AllowAnyHeader());
             app.UseRouting();
-
             app.UseAuthentication();
             app.UseAuthorization();
 

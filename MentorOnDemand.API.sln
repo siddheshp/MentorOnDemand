@@ -3,17 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29424.173
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MOD.AuthService", "MOD.AuthService\MOD.AuthService.csproj", "{A90DBF08-C93B-491F-BA1B-A2CAFFBC48DF}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MOD.AuthLibrary", "MOD.AuthLibrary\MOD.AuthLibrary.csproj", "{6C27C801-0A52-4CF9-A1F0-29536EAE32F0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MOD.AdminService", "MOD.AdminService\MOD.AdminService.csproj", "{D51F3065-A495-4453-ACE4-8F0B7CAD216C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MOD.AdminLibrary", "MOD.AdminLibrary\MOD.AdminLibrary.csproj", "{3DE6B139-6000-401A-9820-EEFD9AAB68F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MOD.MentorService", "MOD.MentorService\MOD.MentorService.csproj", "{0FC6E1CA-AC77-40B6-BF71-CB500AD5123F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MOD.MentorService", "MOD.MentorService\MOD.MentorService.csproj", "{0FC6E1CA-AC77-40B6-BF71-CB500AD5123F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MOD.MentorLibrary", "MOD.MentorLibrary\MOD.MentorLibrary.csproj", "{B20D30C8-2EC1-4C73-8FD8-B8800AA4B7A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MOD.MentorLibrary", "MOD.MentorLibrary\MOD.MentorLibrary.csproj", "{B20D30C8-2EC1-4C73-8FD8-B8800AA4B7A5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MOD.Api.Gateway", "MOD.Api.Gateway\MOD.Api.Gateway.csproj", "{0CD85A52-61C1-493D-95A7-5857FB119155}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MOD.AuthService", "MOD.AuthService1\MOD.AuthService.csproj", "{79082BB4-F599-43FC-AA8D-06313C5CA425}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +23,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A90DBF08-C93B-491F-BA1B-A2CAFFBC48DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A90DBF08-C93B-491F-BA1B-A2CAFFBC48DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A90DBF08-C93B-491F-BA1B-A2CAFFBC48DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A90DBF08-C93B-491F-BA1B-A2CAFFBC48DF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6C27C801-0A52-4CF9-A1F0-29536EAE32F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6C27C801-0A52-4CF9-A1F0-29536EAE32F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C27C801-0A52-4CF9-A1F0-29536EAE32F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,6 +43,14 @@ Global
 		{B20D30C8-2EC1-4C73-8FD8-B8800AA4B7A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B20D30C8-2EC1-4C73-8FD8-B8800AA4B7A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B20D30C8-2EC1-4C73-8FD8-B8800AA4B7A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CD85A52-61C1-493D-95A7-5857FB119155}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CD85A52-61C1-493D-95A7-5857FB119155}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CD85A52-61C1-493D-95A7-5857FB119155}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CD85A52-61C1-493D-95A7-5857FB119155}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79082BB4-F599-43FC-AA8D-06313C5CA425}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79082BB4-F599-43FC-AA8D-06313C5CA425}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79082BB4-F599-43FC-AA8D-06313C5CA425}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79082BB4-F599-43FC-AA8D-06313C5CA425}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
